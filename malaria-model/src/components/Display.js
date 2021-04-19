@@ -54,11 +54,8 @@ class Display extends React.Component {
                 <div className="ui placeholder segment">
                     {this.fileData()}
                     <Upload onFileUpload={this.onUpload}/>
-                    
                 </div>
-                
             </div>
-            
         );
     }
 }

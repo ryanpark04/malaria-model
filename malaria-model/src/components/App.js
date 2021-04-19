@@ -41,7 +41,6 @@ class App extends React.Component {
                     Or
                 </div>
             </div>
-            
         );
     }
 }

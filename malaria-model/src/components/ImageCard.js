@@ -5,7 +5,13 @@ class ImageCard extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = { };
+        this.state = { selectedFile: null };
+    }
+
+    onFileUpload = () => {
+        this.setState({ selectedFile: this.props.image.url })
+
+        console.log('test');
     }
 
     render() {
@@ -15,7 +21,7 @@ class ImageCard extends React.Component {
             <div className="container">
                 <img alt="cell" src={url} className="ui rounded image fadedimg" />
                 <div className="middle" >
-                    <button className="ui primary circular icon button">
+                    <button className="ui primary circular icon button" onClick={this.onFileUpload}>
                         <i className="upload icon" />
                     </button>       
                 </div>
