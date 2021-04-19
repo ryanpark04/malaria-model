@@ -45,7 +45,6 @@ def predict():
 
     return runPrediction(img)
 
-
 @app.route('/images', methods=['GET'])
 def images():
 
@@ -58,7 +57,6 @@ def images():
     lst = random.sample(list(data), numfiles)
 
     return { "cells" : lst }
-
 
 if __name__ == '__main__':
     app.run(debug=True)
