@@ -33,7 +33,12 @@ class App extends React.Component {
                             <Display />
                         </div>
                     </div>
+
                     <div className="eight wide column" style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
+                        <button className="ui circular icon button" onClick={this.fetchImages}>
+                            <i className="ui redo alternate icon" />
+                        </button>
+                        
                         {this.renderImages()}
                     </div>
                 </div>

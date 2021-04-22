@@ -2,6 +2,23 @@
     position: relative;
 }
 
+.clickedimg {
+    opacity: 0.3;
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.infotext {
+    opacity: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
 .fadedimg {
     opacity: 1;
     display: block;
@@ -28,4 +45,13 @@
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     text-align: center;
+}
+
+.animate-opacity {
+    animation:opac 0.8s
+}
+
+@keyframes opac {
+    from {opacity:0} 
+    to {opacity:1}
 }

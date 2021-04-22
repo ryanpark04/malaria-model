@@ -5,28 +5,58 @@ class ImageCard extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = { selectedFile: null };
+        this.state = { clicked: false };
     }
 
-    onFileUpload = () => {
-        this.setState({ selectedFile: this.props.image.url })
 
-        console.log('test');
+    onButtonClick = () => {
+        this.setState({ clicked: true })
+    }
+
+    displayInfo = () => {
+        const { className, confidence, url } = this.props.image;
+        const capitalizedClass = className.charAt(0).toUpperCase() + className.slice(1);
+        const percent = Math.trunc(confidence).toString();
+        if (this.state.clicked) {
+            
+            return (
+                <div className="container">
+                    <img alt="cell" src={url} className="ui rounded image clickedimg" />
+                    <div className="infotext">
+                        <div className="animate-opacity" >
+                            <div style={{ fontSize: "17px", fontWeight: "bold" }}>
+                                 {capitalizedClass}
+                            </div>
+                            {percent + "%"}
+                        </div>
+
+                    </div>
+                        
+                </div>
+            );
+        } else {
+            return (
+                <div className="container">
+                    <img alt="cell" src={url} className="ui rounded image fadedimg" />
+                    <div className="middle" >
+                        <button className="ui primary circular icon button" onClick={this.onButtonClick}>
+                            <i className="info icon" />
+                        </button>
+                    </div>
+                </div>
+                   
+            );
+            
+        }
     }
 
     render() {
-        const { url } = this.props.image;
-
+        
         return (
-            <div className="container">
-                <img alt="cell" src={url} className="ui rounded image fadedimg" />
-                <div className="middle" >
-                    <button className="ui primary circular icon button" onClick={this.onFileUpload}>
-                        <i className="upload icon" />
-                    </button>       
-                </div>
-                
+            <div>
+                {this.displayInfo()}
             </div>
+            
         );
     }
 }
