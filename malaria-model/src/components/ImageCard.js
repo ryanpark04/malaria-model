@@ -8,7 +8,6 @@ class ImageCard extends React.Component {
         this.state = { clicked: false };
     }
 
-
     onButtonClick = () => {
         this.setState({ clicked: true })
     }
@@ -36,7 +35,7 @@ class ImageCard extends React.Component {
             );
         } else {
             return (
-                <div className="container">
+                <div className="container" style={{ cursor: "pointer" }} onClick={this.onButtonClick}>
                     <img alt="cell" src={url} className="ui rounded image fadedimg" />
                     <div className="middle" >
                         <button className="ui primary circular icon button" onClick={this.onButtonClick}>
